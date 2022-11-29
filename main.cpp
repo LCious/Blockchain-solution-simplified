@@ -8,13 +8,19 @@ int main(){
 
 
     //tst
-    // cout << vartotojai[555].name << " "
-    // << vartotojai[555].public_key << " "
-    // << vartotojai[555].balance << endl;
+    cout << users[555].name << endl
+    << users[555].public_key << endl
+    << users[555].balance << endl << endl;
+   
+    cout <<"Hash transaction id: "<< transactions[8888].transaction_id_hash << endl
+    << "Transaction public key: "<<transactions[8888].sender_public_key << endl
+    << "Recipient public key: "<<transactions[8888].recipient_public_key << endl
+    << "Total transactions: "<<transactions[8888].total << endl;
 
-    // cout << transakcijos[8888].transaction_id_hash << " "
-    // << transakcijos[8888].sender_public_key << " "
-    // << transakcijos[8888].recipient_public_key << " "
-    // << transakcijos[8888].total << endl;
+    vector<block_header> blocks;
+    // vector blockchain;
+    
+    int difficulty_target = 1;
 
+    print_bc_info(blockchain);
 }
