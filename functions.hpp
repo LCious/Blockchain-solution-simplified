@@ -11,6 +11,8 @@
 #include <time.h>
 #include <chrono>
 
+#include <climits>
+
 #include "includes/hash.hpp"
 
 
@@ -49,7 +51,7 @@ vector<users> generate_users(int);
 
 vector<transactions> generate_transactions(int, vector<users>);
 
-block_header genenerate_block(int, int, vector<transactions> &, vector<block_header>);
+block_header generate_block(int, int, vector<transactions> &);
 
 void print_bc_info(vector<block_header>);
 

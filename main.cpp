@@ -19,8 +19,28 @@ int main(){
 
     vector<block_header> blocks;
     // vector blockchain;
-    
-    int difficulty_target = 1;
 
-    print_bc_info(blockchain);
+    int difficulty_target = 2;
+    int i = 1;
+
+    while(transactions.size() > 0){
+
+        unsigned int numonce = random_num(0, INT_MAX);
+        string numonce_hash = hash_function(to_string(numonce));
+
+        cout << "Mining block " << i << endl;
+
+        blocks.push_back(generate_block(difficulty_target, numonce, transactions));
+
+        i++;
+
+        if(i > 100){
+        print_bc_info(blocks);}
+    }
+
+    // cout << blocks.at(3).nonce;
+    
+
+    // cout << "tst" << endl;
+    // print_bc_info(blocks);
 }
