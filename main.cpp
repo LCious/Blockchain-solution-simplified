@@ -3,6 +3,9 @@ using namespace std;
 
 int main(){
 
+    ofstream out;
+    out.open("bc_info.txt", fstream::trunc);    //trunc output
+
     vector<users> users = generate_users(1000);
     vector<transactions> transactions = generate_transactions(10000, users);
 
@@ -21,26 +24,23 @@ int main(){
     // vector blockchain;
 
     int difficulty_target = 2;
-    int i = 1;
+    int i = 0;
 
     while(transactions.size() > 0){
+        while(true){
+            int diff_0_found = 0;
+            unsigned int numonce = random_num(0, INT_MAX);
+            string numonce_hash = hash_function(to_string(numonce));
 
-        unsigned int numonce = random_num(0, INT_MAX);
-        string numonce_hash = hash_function(to_string(numonce));
+            // cout << "Mining block " << i << endl;
 
-        cout << "Mining block " << i << endl;
+            if(diff_0_found == difficulty_target){
+                blocks.push_back(generate_block(difficulty_target, numonce, transactions, i));
+                
+                print_bc_info(blocks, i);
 
-        blocks.push_back(generate_block(difficulty_target, numonce, transactions));
-
-        i++;
-
-        if(i > 100){
-        print_bc_info(blocks);}
+                i++;
+            }
+        }
     }
-
-    // cout << blocks.at(3).nonce;
-    
-
-    // cout << "tst" << endl;
-    // print_bc_info(blocks);
 }

@@ -51,9 +51,9 @@ vector<users> generate_users(int);
 
 vector<transactions> generate_transactions(int, vector<users>);
 
-block_header generate_block(int, int, vector<transactions> &);
+block_header generate_block(int, int, vector<transactions> &, int);
 
-void print_bc_info(vector<block_header>);
+void print_bc_info(vector<block_header>, int i);
 
 
 
